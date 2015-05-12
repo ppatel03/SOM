@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="C:/Eclipse workspace/SomGenerator/SomGenerator/jars/poi-ooxml-schemas-3.11-20141221.jar"/>
 	<classpathentry kind="lib" path="C:/Eclipse workspace/SomGenerator/SomGenerator/jars/poi-scratchpad-3.11-20141221.jar"/>
 	<classpathentry kind="lib" path="C:/Eclipse workspace/SomGenerator/SomGenerator/jars/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse workspace/jars/org.json-20120521.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

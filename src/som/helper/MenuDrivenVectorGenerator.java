@@ -10,6 +10,7 @@ import static som.constants.IGenericConstants.inputValuesMap;
 import static som.constants.IGenericConstants.maxNoOfOptions;
 import static som.constants.IGenericConstants.defaultOption;
 import static som.constants.IGenericConstants.customColumnOption;
+import static som.constants.IGenericConstants.visualOption;
 import static som.constants.IGenericConstants.excelSheetMapperListCaseCustom;
 
 
@@ -35,13 +36,19 @@ public class MenuDrivenVectorGenerator {
 		System.out.println("Enter 5 to train SOM by vectors of Situation Description");
 		System.out.println("Enter 6 to train SOM by vectors of your Custom Column Nos");
 		System.out.println("Enter 7 to train SOM by best 100 words Provided for Situation Description");
+		System.out.println("Enter 8 to train SOM by best 100 words Provided for Situation Description"
+				+ "and Mission Statement");
+
+
 	}
 
 	private static void displayFirstMenu(){
 		System.out.println("Enter 1 to run Our Customized SOM Algorithm. If you are selecting this option, then please"
 				+ " make sure to avoid selecting large data. This option will automatically trigger SOM Viewer");
 		System.out.println("Enter 2 to get Input Vector Files For SOM Toolbox");
-		System.out.println("Enter 3 to generate semantic Output File.");		
+		System.out.println("Enter 3 to generate semantic Output File.");	
+		System.out.println("Enter 4 to view the visualized output based on DWM File (stored in project as visual.dwm)");
+
 
 	}
 
@@ -61,7 +68,7 @@ public class MenuDrivenVectorGenerator {
 		}
 		return input;
 	}
-	
+
 	/**
 	 * 
 	 * @return the String input from the console
@@ -124,16 +131,19 @@ public class MenuDrivenVectorGenerator {
 		displayFirstMenu();
 		int inputForFirstMenu = getIntegerInput();
 		int inputForSecondMenu = -1;
-		
-		displaySecondMenu();
-		inputForSecondMenu = getIntegerInput();
-		if(inputForSecondMenu == customColumnOption){
-			System.out.println(" Enter Comma Separated Columns : ");
-			String customColumnInputString = getStringInput();
-			storeCustomColumnNos(customColumnInputString);
+
+		if(inputForFirstMenu != visualOption){
+			displaySecondMenu();
+			inputForSecondMenu = getIntegerInput();
+			if(inputForSecondMenu == customColumnOption){
+				System.out.println(" Enter Comma Separated Columns : ");
+				String customColumnInputString = getStringInput();
+				storeCustomColumnNos(customColumnInputString);
+			}
+			createInputVectorsBasedOnOption(inputForFirstMenu,inputForSecondMenu);
+
+
 		}
-		createInputVectorsBasedOnOption(inputForFirstMenu,inputForSecondMenu);
-		
 
 		return inputForFirstMenu;
 	}

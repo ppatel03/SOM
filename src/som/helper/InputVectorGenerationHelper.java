@@ -370,7 +370,7 @@ public class InputVectorGenerationHelper {
 						}						
 
 						String coOccurence = cur+","+next;
-						String coOccurenceReverse = cur+","+next;
+						String coOccurenceReverse = next+","+cur;
 
 						if(bestWordsList.contains(coOccurence) || bestWordsList.contains(coOccurenceReverse)){
 							int index = bestWordsList.indexOf(coOccurence);
@@ -438,7 +438,7 @@ public class InputVectorGenerationHelper {
 
 		if(secondOption == bestWordsTemplateVectorFileOption ){
 			//prints the Best Words Vector file
-			fileOperAdapter.readBestWordsFile(BEST_WORDS_FILE);
+			fileOperAdapter.readFromFile(BEST_WORDS_FILE);
 			//browser through every VectorData object and 
 			generateTfCooccurenceValuesIntoVectorsForBestWords(inputVectorMap,vectorDataList, firstOption);
 			fileOperAdapter.writeToFile(BEST_WORDS_TEMPLATE_VECTOR_FILE);

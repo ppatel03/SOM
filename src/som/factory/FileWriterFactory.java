@@ -15,6 +15,9 @@ import som.file.SemanticOutputFileWriter;
 import som.file.TemplateVectorFileWriter;
 import som.file.UnitVectorFileWriter;
 import som.file.WeightVectorFileWriter;
+import som.file.VisualDataJSONWriter;
+import som.file.DWMFileReader;
+
 //static imports - Java is awesome
 import static som.constants.IFileFactoryConstants.DWM_FILE;
 import static som.constants.IFileFactoryConstants.UNIT_VECTOR_FILE;
@@ -25,12 +28,8 @@ import static som.constants.IFileFactoryConstants.CUSTOM_SOM_PARSER_UNIT_OUTPUT_
 import static som.constants.IFileFactoryConstants.TEMPLATE_VECTOR_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_TEMPLATE_VECTOR_FILE;
-
-
-
-
-
-
+import static som.constants.IFileFactoryConstants.VISUAL_DATA_JSON_FILE_WRITER;
+import static som.constants.IFileFactoryConstants.DWM_FILE_READER;
 
 public class FileWriterFactory {
 
@@ -61,6 +60,12 @@ public class FileWriterFactory {
 		}
 		else if(BEST_WORDS_TEMPLATE_VECTOR_FILE.equalsIgnoreCase(fileType)){
 			return new BestWordsTemplateVectorWriter();
+		}
+		else if(VISUAL_DATA_JSON_FILE_WRITER.equalsIgnoreCase(fileType)){
+			return new VisualDataJSONWriter();
+		}
+		else if(DWM_FILE_READER.equalsIgnoreCase(fileType)){
+			return new DWMFileReader();
 		}
 		else return null;
 		

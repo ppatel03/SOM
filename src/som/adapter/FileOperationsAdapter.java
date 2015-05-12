@@ -38,9 +38,11 @@ public class FileOperationsAdapter {
 		return this.excelDataSheetReader.getCombinedWords();
 	}
 	
-	public void readBestWordsFile(String fileType){
+	public void readFromFile(String fileType){
 		FileWriterFactory fileFactory = new FileWriterFactory();
 		fileWriter = fileFactory.getFileWriter(fileType);
 		fileWriter.readFromFile();
 	}
+	
+	
 }

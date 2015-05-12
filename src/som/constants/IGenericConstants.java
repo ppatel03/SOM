@@ -42,6 +42,9 @@ public interface IGenericConstants {
 
 	//Default Option provided
 	int customColumnOption = 6;
+	
+	//Default Option provided
+	int visualOption = 4;
 
 	//Best Vector File Creation Option provided
 	int bestWordsTemplateVectorFileOption = 7;
@@ -146,7 +149,7 @@ public interface IGenericConstants {
 				add((byte)18);
 			}};
 
-			// list of case 5 (default case)  18  - only situation description
+			// list of case 7   - only situation description
 			ArrayList<Byte> excelSheetMapperListCase7 = new ArrayList<Byte>(){
 				/**
 				 * 
@@ -156,6 +159,61 @@ public interface IGenericConstants {
 			{				
 				add((byte)18);
 			}};
+			
+			// list of case 7   - only situation description and mission 
+			ArrayList<Byte> excelSheetMapperListCase8 = new ArrayList<Byte>(){
+			/**
+			* 
+			 */
+			private static final long serialVersionUID = 5923539898694295466L;
+			{				
+				add((byte)18);
+				add((byte)5);
+			}};
+			
+			// list of case 8 - all columns
+			ArrayList<Byte> excelSheetMapperListCase9 = new ArrayList<Byte>(){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 5923539898694295466L;
+
+			{	
+				add((byte)0);
+				add((byte)1);
+				add((byte)2);
+				add((byte)3);
+				add((byte)4);
+				add((byte)5);
+				add((byte)6);
+				add((byte)7);
+				add((byte)8);
+				add((byte)9);
+				add((byte)10);
+				add((byte)11);
+				add((byte)12);
+				add((byte)13);
+				add((byte)14);
+				add((byte)15);
+				add((byte)15);
+				add((byte)16);
+				add((byte)17);
+				add((byte)18);
+			}};
+			
+			
+			//list of case 9 -  columns required for visualization org_name,org_website,social_sector,
+			//tech_sector,situation_description,technical_scope
+			ArrayList<Byte> excelSheetMapperListCase10 = new ArrayList<Byte>(){{
+				add((byte)0);
+				add((byte)4);
+				add((byte)15);
+				add((byte)16);
+				add((byte)18);
+				add((byte)21);
+			}};
+			
+			
 
 			// Custom Columns Entered
 			ArrayList<Byte> excelSheetMapperListCaseCustom = new ArrayList<Byte>();
@@ -196,6 +254,10 @@ public interface IGenericConstants {
 				put(5, excelSheetMapperListCase5);
 				put(6, excelSheetMapperListCaseCustom);
 				put(7, excelSheetMapperListCase7);
+				put(8, excelSheetMapperListCase8);
+				put(9, excelSheetMapperListCase9);
+				put(10, excelSheetMapperListCase10);
+
 			}};
 
 			//dictionary of words

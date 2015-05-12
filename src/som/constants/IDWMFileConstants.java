@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+
 import som.beans.SOMDimensionRelation;
 
 public interface IDWMFileConstants extends IMatrixConstants{
@@ -24,5 +25,10 @@ public interface IDWMFileConstants extends IMatrixConstants{
 
 	//metric used to computer Minimum distance 
 	String minimumDistanceComputationMetric = "at.tuwien.ifs.somtoolbox.layers.metrics.L2Metric";
+	
+	//Filename to be used for read for visualization
+	String VISUAL_FILE_NAME = "visual.dwm";
+	
+	
 
 }
