@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import som.beans.VectorData;
 //static import in java. Java is awesome
 import static som.constants.IGenericConstants.inputValuesMap;
@@ -228,6 +229,12 @@ public class BLOutputFileParser implements IFileWritable{
 
 	@Override
 	public void readFromFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readFromFile(String fileName) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -92,9 +92,8 @@ public class MenuDrivenVectorGenerator {
 	 * @param input
 	 */
 	public static void createInputVectorsBasedOnOption(int firstOption, int secondOption){
-		if(secondOption > maxNoOfOptions){
-			//default case
-			InputVectorGenerationHelper.createInputVectors(inputValuesMap, firstOption,defaultOption);
+		if(secondOption > maxNoOfOptions || secondOption < 0){
+			System.out.println("Option not present in the list");		
 		}
 		else{
 			InputVectorGenerationHelper.createInputVectors(inputValuesMap, firstOption,secondOption);
@@ -107,13 +106,18 @@ public class MenuDrivenVectorGenerator {
 	 * 
 	 * @param customColumnInput
 	 */
-	public static void storeCustomColumnNos(String customColumnInput){
-		String[] customColumns = customColumnInput.split(",");
+	public static void handleCustomCoulumnInput(int  inputForSecondMenu){
 		try{
-			for(String s : customColumns){
-				if(s != null && s != ""){
-					Byte columnNo = Byte.parseByte(s);
-					excelSheetMapperListCaseCustom.add(columnNo);
+			if(inputForSecondMenu == customColumnOption){
+				System.out.println(" Enter Comma Separated Columns : ");
+				String customColumnInputString = getStringInput();
+				String[] customColumns = customColumnInputString.split(",");
+
+				for(String s : customColumns){
+					if(s != null && s != ""){
+						Byte columnNo = Byte.parseByte(s);
+						excelSheetMapperListCaseCustom.add(columnNo);
+					}
 				}
 			}
 		}
@@ -135,13 +139,10 @@ public class MenuDrivenVectorGenerator {
 		if(inputForFirstMenu != visualOption){
 			displaySecondMenu();
 			inputForSecondMenu = getIntegerInput();
-			if(inputForSecondMenu == customColumnOption){
-				System.out.println(" Enter Comma Separated Columns : ");
-				String customColumnInputString = getStringInput();
-				storeCustomColumnNos(customColumnInputString);
-			}
-			createInputVectorsBasedOnOption(inputForFirstMenu,inputForSecondMenu);
 
+			handleCustomCoulumnInput(inputForSecondMenu);
+
+			createInputVectorsBasedOnOption(inputForFirstMenu,inputForSecondMenu);
 
 		}
 

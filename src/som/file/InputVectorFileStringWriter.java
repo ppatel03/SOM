@@ -51,4 +51,10 @@ public class InputVectorFileStringWriter implements IFileWritable{
 		
 	}
 
+	@Override
+	public void readFromFile(String fileName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

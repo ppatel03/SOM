@@ -9,6 +9,7 @@ package som.file;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+
 //static import
 import static som.constants.IBestWordsFileConstants.fileName;
 import static som.constants.IGenericConstants.uniqueWordsList;
@@ -48,6 +49,12 @@ public class BestWordsFileParser implements IFileWritable{
 		catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void readFromFile(String fileName) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

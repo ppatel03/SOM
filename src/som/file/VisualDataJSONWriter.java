@@ -2,6 +2,7 @@ package som.file;
 
 import java.io.PrintWriter;
 
+
 //static import
 import static som.constants.IVisualizationConstants.VISUAL_JSON_JS_FILE;
 import static som.constants.IVisualizationConstants.bmuCoordinatesList;
@@ -24,6 +25,12 @@ public class VisualDataJSONWriter implements IFileWritable {
 
 	@Override
 	public void readFromFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readFromFile(String fileName) {
 		// TODO Auto-generated method stub
 		
 	}

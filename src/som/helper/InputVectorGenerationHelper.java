@@ -229,6 +229,7 @@ public class InputVectorGenerationHelper {
 	 * @param inputVectorMap
 	 * @param vectorDataList
 	 */
+	@Deprecated
 	private static void generateTfCooccurenceValuesIntoVectors(Map<Integer,VectorData> inputVectorMap, 
 			List<VectorData> vectorDataList, int firstOption){
 		PrintWriter writer = null;

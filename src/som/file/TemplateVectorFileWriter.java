@@ -9,6 +9,7 @@ import static som.constants.IGenericConstants.uniqueWordsList;
 
 
 
+
 import java.io.PrintWriter;
 
 
@@ -44,6 +45,12 @@ public class TemplateVectorFileWriter implements IFileWritable{
 	
 	@Override
 	public void readFromFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readFromFile(String fileName) {
 		// TODO Auto-generated method stub
 		
 	}
