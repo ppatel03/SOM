@@ -47,5 +47,5 @@ public interface IVisualizationConstants {
 	JSONArray bmuCoordinatesList = new JSONArray();
 	
 	//output json file name
-	String VISUAL_JSON_FILE = "visual.json";
+	String VISUAL_JSON_JS_FILE = "visualJsonData.js";
 }

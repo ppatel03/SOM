@@ -15,26 +15,20 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class CoocurrenceFileGenerator implements IFileWritable{
 
-	
+
 
 	@Override
 	public void writeToFile() {
 		// TODO Auto-generated method stub
-		
+
 
 	}
-	
-	
+
+
 	public void createVectorDimensionAndWriteIntoFile(String[] words){
 		try{
 			PrintWriter pw = new PrintWriter("bestwords.txt");
-			
-			for(int i = 0 ; i < words.length ; i++){
-				for(int j = 0 ; j <words.length ; j++){
-					pw.println(words[i]+","+words[j]);
-				}
-			}
-			
+			pw.println(words[0]+","+words[1]);
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -47,7 +41,7 @@ public class CoocurrenceFileGenerator implements IFileWritable{
 		String line = "";
 		try{
 			// TODO Auto-generated method stub
-			br = new BufferedReader(new FileReader("output_sitDescOnly.csv"));
+			br = new BufferedReader(new FileReader("output_cooccurrOfmergedSitDescOnly.csv"));
 			while ((line = br.readLine()) != null) {
 
 				// use comma as separator
@@ -62,7 +56,7 @@ public class CoocurrenceFileGenerator implements IFileWritable{
 		}
 
 	}
-	
+
 	/**
 	 *  main function used for testing
 	 * @param args
@@ -72,7 +66,7 @@ public class CoocurrenceFileGenerator implements IFileWritable{
 		CoocurrenceFileGenerator cf = new CoocurrenceFileGenerator();
 		cf.readFromFile();
 	}
-	
-	
+
+
 
 }

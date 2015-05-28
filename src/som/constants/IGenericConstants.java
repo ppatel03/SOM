@@ -54,6 +54,9 @@ public interface IGenericConstants {
 
 	//Template Vector File Creation Option provided
 	int templateVectorFileCreationOption = 2;
+	
+	//option used for fetching data during visualization
+	int visualizationOption = 10;
 
 	//name of input data sheet
 	String INPUT_SHEET_NAME = "__141106_mergedDataInFinalTax_active.xlsx";
@@ -202,7 +205,7 @@ public interface IGenericConstants {
 			}};
 			
 			
-			//list of case 9 -  columns required for visualization org_name,org_website,social_sector,
+			//list of case 10 -  columns required for visualization org_name,org_website,social_sector,
 			//tech_sector,situation_description,technical_scope
 			ArrayList<Byte> excelSheetMapperListCase10 = new ArrayList<Byte>(){{
 				add((byte)0);

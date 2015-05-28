@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 import org.json.JSONArray;
 
 import som.beans.SOMDimensionRelation;
+import som.constants.IGenericConstants;
 import som.helper.DocumentVisualizationDetailsHelper;
 
 //static imports
@@ -81,13 +82,13 @@ public  class DocumentPositionCalculator {
 			visualDocumentsMap.put("color", svgColorList.get(colorIndex));
 			visualDocumentsMap.put("documentNumber", documentNumber);			
 			Map<String,String> trainingDataFromSheetMap = DocumentVisualizationDetailsHelper.getSituationDescriptionFromExcelSheet(
-					9, documentNumber);
-			trainingDataFromSheetMap.put("organization_name", trainingDataFromSheetMap.get("organization_name"));
-			trainingDataFromSheetMap.put("organization_website", trainingDataFromSheetMap.get("organization_website"));
-			trainingDataFromSheetMap.put("social_sector", trainingDataFromSheetMap.get("social_sector"));
-			trainingDataFromSheetMap.put("tech_sector", trainingDataFromSheetMap.get("tech_sector"));
-			trainingDataFromSheetMap.put("situation_description", trainingDataFromSheetMap.get("situation_description"));
-			trainingDataFromSheetMap.put("technical_scope", trainingDataFromSheetMap.get("technical_scope"));
+					IGenericConstants.visualizationOption, documentNumber);
+			visualDocumentsMap.put("organization_name", trainingDataFromSheetMap.get("organization_name"));
+			visualDocumentsMap.put("organization_website", trainingDataFromSheetMap.get("organization_website"));
+			visualDocumentsMap.put("social_sector", trainingDataFromSheetMap.get("social_sector"));
+			visualDocumentsMap.put("tech_sector", trainingDataFromSheetMap.get("tech_sector"));
+			visualDocumentsMap.put("situation_description", trainingDataFromSheetMap.get("situation_description"));
+			visualDocumentsMap.put("technical_scope", trainingDataFromSheetMap.get("technical_scope"));
 
 			bmuCoordinatesList.put(visualDocumentsMap);
 			//for debudgging
