@@ -38,6 +38,9 @@ public class MenuDrivenVectorGenerator {
 		System.out.println("Enter 7 to train SOM by best 100 words Provided for Situation Description");
 		System.out.println("Enter 8 to train SOM by best 100 words Provided for Situation Description"
 				+ "and Mission Statement");
+		System.out.println("Enter 9 to train SOM by best stemmed words Provided for Situation Description");
+		System.out.println("Enter 10 to train SOM by best stemmed words Provided for Situation Description"
+				+ "and Mission Statement");
 
 
 	}

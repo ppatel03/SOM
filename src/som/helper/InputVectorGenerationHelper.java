@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+//static import
 import static som.constants.IGenericConstants.inputValuesMap;
 import static som.constants.IGenericConstants.wordDictionary;
 import static som.constants.IGenericConstants.templateVectorCounterMap;
@@ -23,14 +24,20 @@ import static som.constants.IGenericConstants.uniqueWordsList;
 import static som.constants.IGenericConstants.bestWordsList;
 import static som.constants.IGenericConstants.neglectedWordList;
 import static som.constants.IGenericConstants.trimmedCharactersRegex;
-import static som.constants.IGenericConstants.bestWordsTemplateVectorFileOption;
+import static som.constants.IGenericConstants.bestWordFileOptionForSituationDescription;
+import static som.constants.IGenericConstants.bestWordFileOptionForSituationDescriptionAndMissionStatement;
+import static som.constants.IGenericConstants.stemmendBestWordFileOptionForSituationDescription;
+import static som.constants.IGenericConstants.stemmedBestWordFileOptionForSituationDescriptionAndMissionStatement;
+
 import static som.constants.IGenericConstants.templateVectorFileCreationOption;
 import static som.constants.IGenericConstants.blParserFileOption;
+import static som.constants.IBestWordsFileConstants.CSV_WITH_SITUATION_DESC;
+import static som.constants.IBestWordsFileConstants.CSV_WITH_SITUATION_DESC_MISSION_TEXT;
 
-//static import
 import static som.constants.IFileFactoryConstants.TEMPLATE_VECTOR_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_TEMPLATE_VECTOR_FILE;
+import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE_GENERATOR;
 import static som.constants.IFileFactoryConstants.CUSTOM_SOM_PARSER_UNIT_OUTPUT_FILE;
 
 
@@ -396,7 +403,7 @@ public class InputVectorGenerationHelper {
 					StringBuffer vectorCoOccurenceString = new StringBuffer("");
 
 					vectorData.setVector(vectorList);
-					
+
 
 					for(Integer val : vectorList){
 
@@ -428,16 +435,38 @@ public class InputVectorGenerationHelper {
 	}
 
 	/**
-	 * 
+	 *  stemmed file input  needs two preprocessing steps - first to create bestwords.txt file , second to add stemmed 
+	 *  situation description and stemmed situation description + mission statement into the input data file
+	 *  
+	 * @param secondOption
+	 * @param fileOperAdapter
+	 */
+	public static void doPreliminaryTaskForStemmedInput(int secondOption, FileOperationsAdapter fileOperAdapter){
+		if(GenericHelper.isStemmedBestWordsSelected(secondOption)){
+
+			if(secondOption == stemmendBestWordFileOptionForSituationDescription){
+				fileOperAdapter.readFromFile(BEST_WORDS_FILE_GENERATOR,CSV_WITH_SITUATION_DESC );
+			}
+			else{
+				fileOperAdapter.readFromFile(BEST_WORDS_FILE_GENERATOR,CSV_WITH_SITUATION_DESC_MISSION_TEXT );
+			}
+		}
+	}
+
+	/**
+	 * handles best words case, all words case and calls the appropriate function
 	 * @param inputVectorMap
 	 * @param option
 	 */
 	public static void createInputVectors(Map<Integer,VectorData> inputVectorMap, int firstOption, int secondOption){
-		FileOperationsAdapter fileOperAdapter = new FileOperationsAdapter();
+		FileOperationsAdapter fileOperAdapter = new FileOperationsAdapter();		
+
+		doPreliminaryTaskForStemmedInput(secondOption, fileOperAdapter);		
+
 		List<VectorData> vectorDataList = fileOperAdapter.getVectorDataListFromExcelSheet(secondOption);
 		StringBuffer wordsDiscovered = fileOperAdapter.getTotalNoOfWords();
 
-		if(secondOption == bestWordsTemplateVectorFileOption ){
+		if(GenericHelper.isBestWordsOptionSelected(secondOption)){
 			//prints the Best Words Vector file
 			fileOperAdapter.readFromFile(BEST_WORDS_FILE);
 			//browser through every VectorData object and 
@@ -452,9 +481,7 @@ public class InputVectorGenerationHelper {
 			generateTfCooccurenceValuesIntoVectors(inputVectorMap,vectorDataList, firstOption);
 		}
 
-
-
-		if(firstOption == templateVectorFileCreationOption && secondOption != bestWordsTemplateVectorFileOption ){
+		if(firstOption == templateVectorFileCreationOption && !GenericHelper.isBestWordsOptionSelected(secondOption) ){
 			//prints the input Vector file
 			fileOperAdapter.writeToFile(TEMPLATE_VECTOR_FILE);
 		}
@@ -464,12 +491,8 @@ public class InputVectorGenerationHelper {
 			fileOperAdapter.writeToFile(CUSTOM_SOM_PARSER_UNIT_OUTPUT_FILE);
 		}
 
-
-
 		// Comment below line if you do not want to parse sample output file bl_out_unit
 		//fileOperAdapter.writeToFile(CUSTOM_SOM_PARSER_UNIT_OUTPUT_FILE);
-
-
 	}
 
 }

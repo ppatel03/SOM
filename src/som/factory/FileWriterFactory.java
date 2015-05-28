@@ -6,6 +6,7 @@
 package som.factory;
 
 import som.file.BLOutputFileParser;
+import som.file.BestWordsFileGenerator;
 import som.file.BestWordsFileParser;
 import som.file.BestWordsTemplateVectorWriter;
 import som.file.DWMFileWriter;
@@ -30,6 +31,7 @@ import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_TEMPLATE_VECTOR_FILE;
 import static som.constants.IFileFactoryConstants.VISUAL_DATA_JSON_FILE_WRITER;
 import static som.constants.IFileFactoryConstants.DWM_FILE_READER;
+import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE_GENERATOR;
 
 public class FileWriterFactory {
 
@@ -66,6 +68,9 @@ public class FileWriterFactory {
 		}
 		else if(DWM_FILE_READER.equalsIgnoreCase(fileType)){
 			return new DWMFileReader();
+		}
+		else if(BEST_WORDS_FILE_GENERATOR.equalsIgnoreCase(fileType)){
+			return new BestWordsFileGenerator();
 		}
 		else return null;
 		

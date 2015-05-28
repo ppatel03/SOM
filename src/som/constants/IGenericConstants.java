@@ -42,23 +42,33 @@ public interface IGenericConstants {
 
 	//Default Option provided
 	int customColumnOption = 6;
-	
+
 	//Default Option provided
 	int visualOption = 4;
 
-	//Best Vector File Creation Option provided
-	int bestWordsTemplateVectorFileOption = 7;
+	//Best Vector File Creation Option provided For Situation Description
+	int bestWordFileOptionForSituationDescription = 7;
+
+	//Best Vector File Creation Option provided For Situation Description and Mission Statement
+	int bestWordFileOptionForSituationDescriptionAndMissionStatement = 8;
+
+	//Stemmed Best Vector File Creation Option provided For Situation Description
+	int stemmendBestWordFileOptionForSituationDescription = 9;
+
+	//Stemmed Best Vector File Creation Option provided For Situation Description and Mission Statement
+	int stemmedBestWordFileOptionForSituationDescriptionAndMissionStatement = 10;
 
 	//BL Parser File Creation Option
 	int blParserFileOption = 3;
 
 	//Template Vector File Creation Option provided
 	int templateVectorFileCreationOption = 2;
-	
+
 	//option used for fetching data during visualization
 	int visualizationOption = 10;
 
 	//name of input data sheet
+	@Deprecated
 	String INPUT_SHEET_NAME = "__141106_mergedDataInFinalTax_active.xlsx";
 
 	//name of input data sheet
@@ -116,345 +126,362 @@ public interface IGenericConstants {
 				 */
 				private static final long serialVersionUID = 274863993302385038L;
 
-			{	
-				add((byte) 0);
-				add((byte) 5);
-				add((byte) 10);
-				add((byte) 11);
-				add((byte)17);
-				add((byte)18);
+				{	
+					add((byte) 0);
+					add((byte) 5);
+					add((byte) 10);
+					add((byte) 11);
+					add((byte)17);
+					add((byte)18);
 
-			}};
+				}};
 
-			// list of case 4   18  case 7 : ,9,18,20   case 6 : 4,9,20 
-			ArrayList<Byte> excelSheetMapperListCase4 = new ArrayList<Byte>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 7756504788805983078L;
+				// list of case 4   18  case 7 : ,9,18,20   case 6 : 4,9,20 
+				ArrayList<Byte> excelSheetMapperListCase4 = new ArrayList<Byte>(){
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 7756504788805983078L;
 
-			{	
-				//add((byte)4);
-				add((byte)9);
-				//add((byte)17);
-				add((byte)18);
-				add((byte)20);
-			}};
+					{	
+						//add((byte)4);
+						add((byte)9);
+						//add((byte)17);
+						add((byte)18);
+						add((byte)20);
+					}};
 
-			// list of case 5 (default case)  18  - only situation description
-			ArrayList<Byte> excelSheetMapperListCase5 = new ArrayList<Byte>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 7656403497780591922L;
+					// list of case 5 (default case)  18  - only situation description
+					ArrayList<Byte> excelSheetMapperListCase5 = new ArrayList<Byte>(){
+						/**
+						 * 
+						 */
+						private static final long serialVersionUID = 7656403497780591922L;
 
-			{				
-				add((byte)18);
-			}};
+						{				
+							add((byte)18);
+						}};
 
-			// list of case 7   - only situation description
-			ArrayList<Byte> excelSheetMapperListCase7 = new ArrayList<Byte>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 5923539898694295466L;
+						// list of case 7   - only situation description
+						ArrayList<Byte> excelSheetMapperListCase7 = new ArrayList<Byte>(){
+							/**
+							 * 
+							 */
+							private static final long serialVersionUID = 5923539898694295466L;
 
-			{				
-				add((byte)18);
-			}};
-			
-			// list of case 7   - only situation description and mission 
-			ArrayList<Byte> excelSheetMapperListCase8 = new ArrayList<Byte>(){
-			/**
-			* 
-			 */
-			private static final long serialVersionUID = 5923539898694295466L;
-			{				
-				add((byte)18);
-				add((byte)5);
-			}};
-			
-			// list of case 8 - all columns
-			ArrayList<Byte> excelSheetMapperListCase9 = new ArrayList<Byte>(){
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 5923539898694295466L;
+							{				
+								add((byte)18);
+							}};
 
-			{	
-				add((byte)0);
-				add((byte)1);
-				add((byte)2);
-				add((byte)3);
-				add((byte)4);
-				add((byte)5);
-				add((byte)6);
-				add((byte)7);
-				add((byte)8);
-				add((byte)9);
-				add((byte)10);
-				add((byte)11);
-				add((byte)12);
-				add((byte)13);
-				add((byte)14);
-				add((byte)15);
-				add((byte)15);
-				add((byte)16);
-				add((byte)17);
-				add((byte)18);
-			}};
-			
-			
-			//list of case 10 -  columns required for visualization org_name,org_website,social_sector,
-			//tech_sector,situation_description,technical_scope
-			ArrayList<Byte> excelSheetMapperListCase10 = new ArrayList<Byte>(){{
-				add((byte)0);
-				add((byte)4);
-				add((byte)15);
-				add((byte)16);
-				add((byte)18);
-				add((byte)21);
-			}};
-			
-			
+							// list of case 7   - only situation description and mission 
+							ArrayList<Byte> excelSheetMapperListCase8 = new ArrayList<Byte>(){
+								/**
+								 * 
+								 */
+								private static final long serialVersionUID = 5923539898694295466L;
+								{				
+									add((byte)18);
+									add((byte)5);
+								}};
 
-			// Custom Columns Entered
-			ArrayList<Byte> excelSheetMapperListCaseCustom = new ArrayList<Byte>();
+								// list of case 8 - all columns
+								ArrayList<Byte> excelSheetMapperListCase9 = new ArrayList<Byte>(){
+									/**
+									 * 
+									 */
+									private static final long serialVersionUID = 5923539898694295466L;
+
+									{	
+										add((byte)0);
+										add((byte)1);
+										add((byte)2);
+										add((byte)3);
+										add((byte)4);
+										add((byte)5);
+										add((byte)6);
+										add((byte)7);
+										add((byte)8);
+										add((byte)9);
+										add((byte)10);
+										add((byte)11);
+										add((byte)12);
+										add((byte)13);
+										add((byte)14);
+										add((byte)15);
+										add((byte)15);
+										add((byte)16);
+										add((byte)17);
+										add((byte)18);
+									}};
 
 
-			//list of Neglected words
-			ArrayList<String> trimedWordList = new ArrayList<String>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = -8738283910303799120L;
+									//list of case 10 -  columns required for visualization org_name,org_website,social_sector,
+									//tech_sector,situation_description,technical_scope
+									ArrayList<Byte> excelSheetMapperListCase10 = new ArrayList<Byte>(){/**
+									 * 
+									 */
+										private static final long serialVersionUID = 1L;
 
-			{
-				add(",");
-				add(".");
-				add("/");
-				add("(");	
+										{
+											add((byte)0);
+											add((byte)4);
+											add((byte)15);
+											add((byte)16);
+											add((byte)18);
+											add((byte)21);
+										}};
 
-			}};
 
-			//Regular Expression for Replaced words
-			String trimmedCharactersRegex = "([.,/()'])";
+										//list of case 11 -  columns required for stemmed data
+										ArrayList<Byte> excelSheetMapperListCase11 = new ArrayList<Byte>(){/**
+										 * 
+										 */
+											private static final long serialVersionUID = 1L;
+
+											{										
+												add((byte)26);
+												add((byte)27);
+											}};
 
 
 
-			//mappings of option and List
-			HashMap<Integer, List<Byte>> sheetMapper = new HashMap<Integer, List<Byte>>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = -1706437816912830507L;
-
-			{
-				put(1, excelSheetMapperListCase1);
-				put(2, excelSheetMapperListCase2);
-				put(3, excelSheetMapperListCase3);
-				put(4, excelSheetMapperListCase4);
-				put(5, excelSheetMapperListCase5);
-				put(6, excelSheetMapperListCaseCustom);
-				put(7, excelSheetMapperListCase7);
-				put(8, excelSheetMapperListCase8);
-				put(9, excelSheetMapperListCase9);
-				put(10, excelSheetMapperListCase10);
-
-			}};
-
-			//dictionary of words
-			Map<String, String> wordDictionary = new HashMap<String, String>();
-
-			//List of unique words
-			List<String> uniqueWordsList = new ArrayList<String>();
+											// Custom Columns Entered
+											ArrayList<Byte> excelSheetMapperListCaseCustom = new ArrayList<Byte>();
 
 
-			//list of Neglected words
-			ArrayList<String> neglectedWordList = new ArrayList<String>(){
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 4056783685635726115L;
+											//list of Neglected words
+											ArrayList<String> trimedWordList = new ArrayList<String>(){
+												/**
+												 * 
+												 */
+												private static final long serialVersionUID = -8738283910303799120L;
 
-			{
-				add(".");
-				add("/");
-				add("(");
-				add("a");
-				add("about");
-				add("above");
-				add("after");
-				add("again");
-				add("against");
-				add("all");
-				add("am");
-				add("an");
-				add("and");
-				add("any");
-				add("are");
-				add("aren't");
-				add("as");
-				add("at");
-				add("be");
-				add("because");
-				add("been");
-				add("before");
-				add("being");
-				add("below");
-				add("between");
-				add("both");
-				add("but");
-				add("by");
-				add("can't");
-				add("cannot");
-				add("could");
-				add("couldn't");
-				add("did");
-				add("didn't");
-				add("do");
-				add("does");
-				add("doesn't");
-				add("doing");
-				add("don't");
-				add("down");
-				add("during");
-				add("each");
-				add("few");
-				add("for");
-				add("from");
-				add("further");
-				add("had");
-				add("hadn't");
-				add("has");
-				add("hasn't");
-				add("have");
-				add("haven't");
-				add("having");
-				add("he");
-				add("he'd");
-				add("he'll");
-				add("he's");
-				add("her");
-				add("here");
-				add("here's");
-				add("hers");
-				add("herself");
-				add("him");
-				add("himself");
-				add("his");
-				add("how");
-				add("how's");
-				add("i");
-				add("i'd");
-				add("i'll");
-				add("i'm");
-				add("i've");
-				add("if");
-				add("in");
-				add("into");
-				add("is");
-				add("isn't");
-				add("it");
-				add("it's");
-				add("its");
-				add("itself");
-				add("let's");
-				add("me");
-				add("more");
-				add("most");
-				add("mustn't");
-				add("my");
-				add("myself");
-				add("no");
-				add("nor");
-				add("not");
-				add("of");
-				add("off");
-				add("on");
-				add("once");
-				add("only");
-				add("or");
-				add("other");
-				add("ought");
-				add("our");
-				add("ours");
-				add("ourselves");
-				add("out");
-				add("over");
-				add("own");
-				add("same");
-				add("shan't");
-				add("she");
-				add("she'd");
-				add("she'll");
-				add("she's");
-				add("should");
-				add("shouldn't");
-				add("so");
-				add("some");
-				add("such");
-				add("than");
-				add("that");
-				add("that's");
-				add("the");
-				add("their");
-				add("theirs");
-				add("them");
-				add("themselves");
-				add("then");
-				add("there");
-				add("there's");
-				add("these");
-				add("they");
-				add("they'd");
-				add("they'll");
-				add("they're");
-				add("they've");
-				add("this");
-				add("those");
-				add("through");
-				add("to");
-				add("too");
-				add("under");
-				add("until");
-				add("up");
-				add("very");
-				add("was");
-				add("wasn't");
-				add("we");
-				add("we'd");
-				add("we'll");
-				add("we're");
-				add("we've");
-				add("were");
-				add("weren't");
-				add("what");
-				add("what's");
-				add("when");
-				add("when's");
-				add("where");
-				add("where's");
-				add("which");
-				add("while");
-				add("who");
-				add("who's");
-				add("whom");
-				add("why");
-				add("why's");
-				add("with");
-				add("won't");
-				add("would");
-				add("wouldn't");
-				add("you");
-				add("you'd");
-				add("you'll");
-				add("you're");
-				add("you've");
-				add("your");
-				add("yours");
-				add("yourself");
-				add("yourselves");
+												{
+													add(",");
+													add(".");
+													add("/");
+													add("(");	
 
-			}};
+												}};
+
+												//Regular Expression for Replaced words
+												String trimmedCharactersRegex = "([.,/()'])";
+
+
+
+												//mappings of option and List
+												HashMap<Integer, List<Byte>> sheetMapper = new HashMap<Integer, List<Byte>>(){
+													/**
+													 * 
+													 */
+													private static final long serialVersionUID = -1706437816912830507L;
+
+													{
+														put(1, excelSheetMapperListCase1);
+														put(2, excelSheetMapperListCase2);
+														put(3, excelSheetMapperListCase3);
+														put(4, excelSheetMapperListCase4);
+														put(5, excelSheetMapperListCase5);
+														put(6, excelSheetMapperListCaseCustom);
+														put(7, excelSheetMapperListCase7);
+														put(8, excelSheetMapperListCase8);
+														put(9, excelSheetMapperListCase9);
+														put(10, excelSheetMapperListCase10);
+
+													}};
+
+													//dictionary of words
+													Map<String, String> wordDictionary = new HashMap<String, String>();
+
+													//List of unique words
+													List<String> uniqueWordsList = new ArrayList<String>();
+
+
+													//list of Neglected words
+													ArrayList<String> neglectedWordList = new ArrayList<String>(){
+														/**
+														 * 
+														 */
+														private static final long serialVersionUID = 4056783685635726115L;
+
+														{
+															add(".");
+															add("/");
+															add("(");
+															add("a");
+															add("about");
+															add("above");
+															add("after");
+															add("again");
+															add("against");
+															add("all");
+															add("am");
+															add("an");
+															add("and");
+															add("any");
+															add("are");
+															add("aren't");
+															add("as");
+															add("at");
+															add("be");
+															add("because");
+															add("been");
+															add("before");
+															add("being");
+															add("below");
+															add("between");
+															add("both");
+															add("but");
+															add("by");
+															add("can't");
+															add("cannot");
+															add("could");
+															add("couldn't");
+															add("did");
+															add("didn't");
+															add("do");
+															add("does");
+															add("doesn't");
+															add("doing");
+															add("don't");
+															add("down");
+															add("during");
+															add("each");
+															add("few");
+															add("for");
+															add("from");
+															add("further");
+															add("had");
+															add("hadn't");
+															add("has");
+															add("hasn't");
+															add("have");
+															add("haven't");
+															add("having");
+															add("he");
+															add("he'd");
+															add("he'll");
+															add("he's");
+															add("her");
+															add("here");
+															add("here's");
+															add("hers");
+															add("herself");
+															add("him");
+															add("himself");
+															add("his");
+															add("how");
+															add("how's");
+															add("i");
+															add("i'd");
+															add("i'll");
+															add("i'm");
+															add("i've");
+															add("if");
+															add("in");
+															add("into");
+															add("is");
+															add("isn't");
+															add("it");
+															add("it's");
+															add("its");
+															add("itself");
+															add("let's");
+															add("me");
+															add("more");
+															add("most");
+															add("mustn't");
+															add("my");
+															add("myself");
+															add("no");
+															add("nor");
+															add("not");
+															add("of");
+															add("off");
+															add("on");
+															add("once");
+															add("only");
+															add("or");
+															add("other");
+															add("ought");
+															add("our");
+															add("ours");
+															add("ourselves");
+															add("out");
+															add("over");
+															add("own");
+															add("same");
+															add("shan't");
+															add("she");
+															add("she'd");
+															add("she'll");
+															add("she's");
+															add("should");
+															add("shouldn't");
+															add("so");
+															add("some");
+															add("such");
+															add("than");
+															add("that");
+															add("that's");
+															add("the");
+															add("their");
+															add("theirs");
+															add("them");
+															add("themselves");
+															add("then");
+															add("there");
+															add("there's");
+															add("these");
+															add("they");
+															add("they'd");
+															add("they'll");
+															add("they're");
+															add("they've");
+															add("this");
+															add("those");
+															add("through");
+															add("to");
+															add("too");
+															add("under");
+															add("until");
+															add("up");
+															add("very");
+															add("was");
+															add("wasn't");
+															add("we");
+															add("we'd");
+															add("we'll");
+															add("we're");
+															add("we've");
+															add("were");
+															add("weren't");
+															add("what");
+															add("what's");
+															add("when");
+															add("when's");
+															add("where");
+															add("where's");
+															add("which");
+															add("while");
+															add("who");
+															add("who's");
+															add("whom");
+															add("why");
+															add("why's");
+															add("with");
+															add("won't");
+															add("would");
+															add("wouldn't");
+															add("you");
+															add("you'd");
+															add("you'll");
+															add("you're");
+															add("you've");
+															add("your");
+															add("yours");
+															add("yourself");
+															add("yourselves");
+
+														}};
 }

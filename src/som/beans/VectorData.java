@@ -41,7 +41,13 @@ public class VectorData {
 	private List<Integer> vector;
 	private List<Byte> vectorByte;
 	private StringBuffer vectorString;
-	
+	private String randomName;
+	private String redactedMissionStatement;
+	private String redactedSituationDescription	;
+	private String reach;
+	private String stemmedSituationDescription;
+	private String stemmedSituationDescriptionAndMissionStatement;
+
 	public String getOrganizatioName() {
 		return organizatioName;
 	}
@@ -219,8 +225,15 @@ public class VectorData {
 				+ (technicalScope != null ?  technicalScope		+ " " : "")
 				+ (skillsNeeded != null ?  skillsNeeded + " ": "")
 				+ (portalRelationship != null ?portalRelationship + " " : "")
-				+ (estimatedProjectHours != null ?  estimatedProjectHours + " " : "")
+				+ (randomName != null ?  randomName + " " : "")
+				+ (redactedMissionStatement != null ?  redactedMissionStatement + " " : "")
+				+ (redactedSituationDescription != null ?  redactedSituationDescription + " " : "")
+				+ (reach != null ?  reach + " " : "")
+				+ (stemmedSituationDescription != null ?  stemmedSituationDescription + " " : "")
+				+ (stemmedSituationDescriptionAndMissionStatement != null ?  stemmedSituationDescriptionAndMissionStatement + " " : "")
 				+ (vector != null ?  vector : "") ;
+		
+	
 	}
 	public StringBuffer getVectorString() {
 		return vectorString;
@@ -258,6 +271,43 @@ public class VectorData {
 	 */
 	public void setProjectOverView(String projectOverView) {
 		this.projectOverView = projectOverView;
+	}
+	public String getRandomName() {
+		return randomName;
+	}
+	public void setRandomName(String randomName) {
+		this.randomName = randomName;
+	}
+	public String getRedactedMissionStatement() {
+		return redactedMissionStatement;
+	}
+	public void setRedactedMissionStatement(String redactedMissionStatement) {
+		this.redactedMissionStatement = redactedMissionStatement;
+	}
+	public String getReach() {
+		return reach;
+	}
+	public void setReach(String reach) {
+		this.reach = reach;
+	}
+	public String getRedactedSituationDescription() {
+		return redactedSituationDescription;
+	}
+	public void setRedactedSituationDescription(String redactedSituationDescription) {
+		this.redactedSituationDescription = redactedSituationDescription;
+	}
+	public String getStemmedSituationDescription() {
+		return stemmedSituationDescription;
+	}
+	public void setStemmedSituationDescription(String stemmedSituationDescription) {
+		this.stemmedSituationDescription = stemmedSituationDescription;
+	}
+	public String getStemmedSituationDescriptionAndMissionStatement() {
+		return stemmedSituationDescriptionAndMissionStatement;
+	}
+	public void setStemmedSituationDescriptionAndMissionStatement(
+			String stemmedSituationDescriptionAndMissionStatement) {
+		this.stemmedSituationDescriptionAndMissionStatement = stemmedSituationDescriptionAndMissionStatement;
 	}
 	
 	

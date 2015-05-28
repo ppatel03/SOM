@@ -100,7 +100,7 @@ public class ExcelDataSheetReader implements IFileWritable{
 	private VectorData getPopulatedVectorData(List<Byte> columnList, Row row){
 		VectorData vectorData = new VectorData();
 		
-		//necessary values to ne inputter
+		//necessary values  for input
 		Cell cellTitle = row.getCell(17);
 		String cellValueTitle = getCellValue(cellTitle);
 		vectorData.setProjectTitleForBLParser(cellValueTitle);
@@ -121,80 +121,89 @@ public class ExcelDataSheetReader implements IFileWritable{
 				combinedWords.append(cellValue).append(" ");
 
 				
-				if(pos == 0){
+				if(pos == 0){//A
 					vectorData.setOrganizatioName(cellValue);
 				}
-				else if(pos == 1){
+				else if(pos == 1){//B
 					vectorData.setOrganizationType(cellValue);
 				}
-				else if(pos == 2){
-					vectorData.setOrganization(cellValue);
-				}
-				else if(pos == 3){
+				else if(pos == 2){//C
 					vectorData.setFocusArea(cellValue);
 				}
-				else if(pos == 4){
+				else if(pos == 3){//D
+					vectorData.setRandomName(cellValue);
+				}
+				else if(pos == 4){//E
 					vectorData.setOrganizationWebsite(cellValue);
 				}				
-				else if(pos == 5){
+				else if(pos == 5){//F
 					vectorData.setMissionStatement(cellValue);
 				}
-				else if(pos == 6){
+				else if(pos == 6){//G
+					vectorData.setRedactedMissionStatement(cellValue);
+				}				
+				else if(pos == 7){//H
 					vectorData.setSizeOfOrganization(cellValue);
 				}				
-				else if(pos == 7){
+				else if(pos == 8){//I
 					vectorData.setOrientationReach(cellValue);
-				}				
-				else if(pos == 8){
-					vectorData.setGeographicalScope(cellValue);
 				}
-				else if(pos == 9){
+				else if(pos == 9){//J
+					vectorData.setReach(cellValue);
+				}
+				else if(pos == 10){//K
+					vectorData.setGeographicalScope(cellValue);
+				}				
+				else if(pos == 11){//L
 					vectorData.setTargetAudience(cellValue);
 				}
-				else if(pos == 10){
+				else if(pos == 12){//M
 					vectorData.setCity(cellValue);
-				}				
-				else if(pos == 11){
+				}
+				else if(pos == 13){//N
 					vectorData.setState(cellValue);
 				}
-				else if(pos == 12){
+				else if(pos == 14){//O
 					vectorData.setCountry(cellValue);
 				}
-				else if(pos == 13){
-					vectorData.setRealOrganization(cellValue);
-				}
-				else if(pos == 14){
+				else if(pos == 15){//P
 					vectorData.setSocialSector(cellValue);
 				}
-				else if(pos == 15){
+				else if(pos == 16){//Q
 					vectorData.setTechSector(cellValue);
-				}
-				else if(pos == 16){
-					vectorData.setNeeder(cellValue);
 				}				
-				else if(pos == 17){
+				else if(pos == 17){//R
 					vectorData.setProjectTitle(cellValue);
 				}
-				else if(pos == 18){
+				else if(pos == 18){//S
 					vectorData.setSituationDescription(cellValue);
 				}				
-				else if(pos == 19){
+				else if(pos == 19){//T
+					vectorData.setRedactedSituationDescription(cellValue);
+				}				
+				else if(pos == 20){//U
 					vectorData.setOnsite(cellValue);
 				}				
-				else if(pos == 20){
-					vectorData.setTechnicalScope(cellValue);
-				}				
-				else if(pos == 21){
+				else if(pos == 21){//V
+					vectorData.setTechnicalScope(cellValue);			
+				}
+				else if(pos == 22){//W
 					vectorData.setSkillsNeeded(cellValue);
 				}
-				else if(pos == 22){
+				else if(pos == 23){//X
 					vectorData.setPortalRelationship(cellValue);
 				}
-				else if(pos == 23){
+				else if(pos == 24){//Y
 					vectorData.setEstimatedProjectHours(cellValue);
 				}
-				else if(pos == 24){
+				else if(pos == 25){//Z
 					vectorData.setProjectOverView(cellValue);
+				}
+				else if(pos == 26){//AA
+					vectorData.setStemmedSituationDescription(cellValue);
+				}
+				else if(pos == 27){//AB
+					vectorData.setStemmedSituationDescriptionAndMissionStatement(cellValue);
 				}
 				
 				

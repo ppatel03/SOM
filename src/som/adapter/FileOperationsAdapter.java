@@ -44,5 +44,11 @@ public class FileOperationsAdapter {
 		fileWriter.readFromFile();
 	}
 	
+	public void readFromFile(String fileType, String fileName){
+		FileWriterFactory fileFactory = new FileWriterFactory();
+		fileWriter = fileFactory.getFileWriter(fileType);
+		fileWriter.readFromFile(fileName);
+	}
+	
 	
 }
