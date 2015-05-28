@@ -1,27 +1,30 @@
 package som.visualization;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import som.beans.SOMDimensionRelation;
 import som.constants.IGenericConstants;
 import som.helper.DocumentVisualizationDetailsHelper;
-
+import som.beans.VectorCoordinate;
 //static imports
 import static som.constants.IDWMFileConstants.dwmInfoMap;
 import static som.constants.IVisualizationConstants.lamba;
 import static som.constants.IVisualizationConstants.svgColorList;
-import static som.constants.IVisualizationConstants.bmuCoordinatesList;
+import static som.constants.IVisualizationConstants.bmuCoordinatesJSONArray;
 
 
 public  class DocumentPositionCalculator {
 	
 	public  void storeTraingularCoordinates(){		
 		
-		
+		List<VectorCoordinate> dimensionsList = new ArrayList<VectorCoordinate>();
 		for(Map.Entry<Integer, PriorityQueue<SOMDimensionRelation>> entry : dwmInfoMap.entrySet()){
 			int documentNumber = entry.getKey();
 			PriorityQueue<SOMDimensionRelation> docQueue = entry.getValue();
@@ -72,6 +75,10 @@ public  class DocumentPositionCalculator {
 			double bmuX = ((lamba*force1*force1X) + (lamba*force2*force2X) + (lamba*force3*force3X))+(node1X*100+50);
 			double bmuY = ((lamba*force1*force1Y) + (lamba*force2*force2Y) + (lamba*force3*force3Y))+(node1Y*100+50);
 
+			VectorCoordinate vectorCoordinate = new VectorCoordinate();
+			vectorCoordinate.setX(bmuX);
+			vectorCoordinate.setY(bmuY);
+			
 			//selecting the random color for this document 
 			int colorIndex = (int)(Math.random()*svgColorList.size());
 			
@@ -90,17 +97,32 @@ public  class DocumentPositionCalculator {
 			visualDocumentsMap.put("situation_description", trainingDataFromSheetMap.get("situation_description"));
 			visualDocumentsMap.put("technical_scope", trainingDataFromSheetMap.get("technical_scope"));
 
-			bmuCoordinatesList.put(visualDocumentsMap);
+			bmuCoordinatesJSONArray.put(visualDocumentsMap);
 			//for debudgging
 			System.out.print("Document Number :"+documentNumber);
 			System.out.print(" bmuX:"+bmuX);
 			System.out.println(" bmuY:"+bmuY);
 		}
 		
-		System.out.println(bmuCoordinatesList);
+		System.out.println(bmuCoordinatesJSONArray);
 		
 	}
 
+	
+	public static void recalculateNewPositionToAvoidCollision(){
+		for(int i = 0 ; i < bmuCoordinatesJSONArray.length(); i++){
+			try {
+				Object jsonObject = bmuCoordinatesJSONArray.getJSONObject(i);
+				Map<String,Object> visualDocumentsMap = (Map<String,Object>)jsonObject;
+				
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

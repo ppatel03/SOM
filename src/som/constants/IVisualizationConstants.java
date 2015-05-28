@@ -44,7 +44,7 @@ public interface IVisualizationConstants {
 	}};
 	
 	//json list of D3 Co-ordinates
-	JSONArray bmuCoordinatesList = new JSONArray();
+	JSONArray bmuCoordinatesJSONArray = new JSONArray();
 	
 	//output json file name
 	String VISUAL_JSON_JS_FILE = "visualJsonData.js";
