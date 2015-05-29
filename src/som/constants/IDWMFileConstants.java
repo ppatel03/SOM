@@ -27,7 +27,7 @@ public interface IDWMFileConstants extends IMatrixConstants{
 	String minimumDistanceComputationMetric = "at.tuwien.ifs.somtoolbox.layers.metrics.L2Metric";
 	
 	//Filename to be used for read for visualization
-	String VISUAL_FILE_NAME = "visual.dwm";
+	String VISUAL_FILE_NAME = "MySOM.dwm";
 	
 	
 
