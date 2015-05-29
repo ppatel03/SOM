@@ -33,9 +33,9 @@ public class BestWordsFileParser implements IFileWritable{
 			br = new BufferedReader(new FileReader(fileName));
 			while((currentLine = br.readLine()) != null){
 				currentLine = currentLine.trim();
-				if(!bestWordsList.contains(currentLine)){
+				//if(!bestWordsList.contains(currentLine)){
 					bestWordsList.add(currentLine);
-				}
+				//}
 				String[] wordSplitArray = currentLine.split(",");
 				for(String s : wordSplitArray){
 					if(!uniqueWordsList.contains(s)){

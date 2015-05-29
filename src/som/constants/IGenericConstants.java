@@ -35,7 +35,7 @@ public interface IGenericConstants {
 	boolean IS_TRAINING_REQUIRED = true;	
 
 	//maximum number of combinations required for input vectors
-	int maxNoOfOptions = 7;
+	int maxNoOfOptions = 10;
 
 	//Default Option provided
 	int defaultOption = 5;
@@ -65,14 +65,14 @@ public interface IGenericConstants {
 	int templateVectorFileCreationOption = 2;
 
 	//option used for fetching data during visualization
-	int visualizationOption = 10;
+	int visualizationOption = 11;
 
 	//name of input data sheet
 	@Deprecated
 	String INPUT_SHEET_NAME = "__141106_mergedDataInFinalTax_active.xlsx";
 
 	//name of input data sheet
-	String REVISED_INPUT_SHEET_NAME = "__150208_mergedDataInFinalTax.xlsx";
+	String REVISED_INPUT_SHEET_NAME = "__150423_mergedData_readyForTraining.xlsx";
 
 	// max no. of rows in sheet
 	int MAX_NO_OF_ROWS = 167;
@@ -239,7 +239,7 @@ public interface IGenericConstants {
 											private static final long serialVersionUID = 1L;
 
 											{										
-												add((byte)27);
+												add((byte)26);
 											}};
 
 
@@ -299,6 +299,7 @@ public interface IGenericConstants {
 															put(8, excelSheetMapperListCase8);
 															put(9, excelSheetMapperListCase11);
 															put(10, excelSheetMapperListCase12);
+															put(11, excelSheetMapperListCase10);
 
 														}};
 
