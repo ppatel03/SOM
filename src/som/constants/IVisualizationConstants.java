@@ -48,4 +48,16 @@ public interface IVisualizationConstants {
 	
 	//output json file name
 	String VISUAL_JSON_JS_FILE = "visualJsonData.js";
+	
+	//displacement constant
+	double INITIAL_DISPLACEMENT = 10;
+	
+	//max displacement factor
+	double MAX_DISPLACEMENT_FACTOR = 40;
+	
+	//minimum dimension
+	double MIN_DIMENSION = 0;
+	
+	//maximum dimension
+	double MAX_DIMENSION = 1000;
 }

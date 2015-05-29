@@ -232,256 +232,268 @@ public interface IGenericConstants {
 										}};
 
 
-										//list of case 11 -  columns required for stemmed data
+										//list of case 11 -  columns required for stemmed data - Situation Description Only
 										ArrayList<Byte> excelSheetMapperListCase11 = new ArrayList<Byte>(){/**
 										 * 
 										 */
 											private static final long serialVersionUID = 1L;
 
 											{										
-												add((byte)26);
 												add((byte)27);
 											}};
 
 
+											//list of case 12 -  columns required for stemmed data - Situation Description 
+											// and mission statement
+											ArrayList<Byte> excelSheetMapperListCase12 = new ArrayList<Byte>(){/**
+											 * 
+											 */
+												private static final long serialVersionUID = 1L;
 
-											// Custom Columns Entered
-											ArrayList<Byte> excelSheetMapperListCaseCustom = new ArrayList<Byte>();
-
-
-											//list of Neglected words
-											ArrayList<String> trimedWordList = new ArrayList<String>(){
-												/**
-												 * 
-												 */
-												private static final long serialVersionUID = -8738283910303799120L;
-
-												{
-													add(",");
-													add(".");
-													add("/");
-													add("(");	
-
+												{										
+													add((byte)26);
+													add((byte)27);
 												}};
 
-												//Regular Expression for Replaced words
-												String trimmedCharactersRegex = "([.,/()'])";
 
 
+												// Custom Columns Entered
+												ArrayList<Byte> excelSheetMapperListCaseCustom = new ArrayList<Byte>();
 
-												//mappings of option and List
-												HashMap<Integer, List<Byte>> sheetMapper = new HashMap<Integer, List<Byte>>(){
+
+												//list of Neglected words
+												ArrayList<String> trimedWordList = new ArrayList<String>(){
 													/**
 													 * 
 													 */
-													private static final long serialVersionUID = -1706437816912830507L;
+													private static final long serialVersionUID = -8738283910303799120L;
 
 													{
-														put(1, excelSheetMapperListCase1);
-														put(2, excelSheetMapperListCase2);
-														put(3, excelSheetMapperListCase3);
-														put(4, excelSheetMapperListCase4);
-														put(5, excelSheetMapperListCase5);
-														put(6, excelSheetMapperListCaseCustom);
-														put(7, excelSheetMapperListCase7);
-														put(8, excelSheetMapperListCase8);
-														put(9, excelSheetMapperListCase9);
-														put(10, excelSheetMapperListCase10);
+														add(",");
+														add(".");
+														add("/");
+														add("(");	
 
 													}};
 
-													//dictionary of words
-													Map<String, String> wordDictionary = new HashMap<String, String>();
-
-													//List of unique words
-													List<String> uniqueWordsList = new ArrayList<String>();
+													//Regular Expression for Replaced words
+													String trimmedCharactersRegex = "([.,/()'])";
 
 
-													//list of Neglected words
-													ArrayList<String> neglectedWordList = new ArrayList<String>(){
+
+													//mappings of option and List
+													HashMap<Integer, List<Byte>> sheetMapper = new HashMap<Integer, List<Byte>>(){
 														/**
 														 * 
 														 */
-														private static final long serialVersionUID = 4056783685635726115L;
+														private static final long serialVersionUID = -1706437816912830507L;
 
 														{
-															add(".");
-															add("/");
-															add("(");
-															add("a");
-															add("about");
-															add("above");
-															add("after");
-															add("again");
-															add("against");
-															add("all");
-															add("am");
-															add("an");
-															add("and");
-															add("any");
-															add("are");
-															add("aren't");
-															add("as");
-															add("at");
-															add("be");
-															add("because");
-															add("been");
-															add("before");
-															add("being");
-															add("below");
-															add("between");
-															add("both");
-															add("but");
-															add("by");
-															add("can't");
-															add("cannot");
-															add("could");
-															add("couldn't");
-															add("did");
-															add("didn't");
-															add("do");
-															add("does");
-															add("doesn't");
-															add("doing");
-															add("don't");
-															add("down");
-															add("during");
-															add("each");
-															add("few");
-															add("for");
-															add("from");
-															add("further");
-															add("had");
-															add("hadn't");
-															add("has");
-															add("hasn't");
-															add("have");
-															add("haven't");
-															add("having");
-															add("he");
-															add("he'd");
-															add("he'll");
-															add("he's");
-															add("her");
-															add("here");
-															add("here's");
-															add("hers");
-															add("herself");
-															add("him");
-															add("himself");
-															add("his");
-															add("how");
-															add("how's");
-															add("i");
-															add("i'd");
-															add("i'll");
-															add("i'm");
-															add("i've");
-															add("if");
-															add("in");
-															add("into");
-															add("is");
-															add("isn't");
-															add("it");
-															add("it's");
-															add("its");
-															add("itself");
-															add("let's");
-															add("me");
-															add("more");
-															add("most");
-															add("mustn't");
-															add("my");
-															add("myself");
-															add("no");
-															add("nor");
-															add("not");
-															add("of");
-															add("off");
-															add("on");
-															add("once");
-															add("only");
-															add("or");
-															add("other");
-															add("ought");
-															add("our");
-															add("ours");
-															add("ourselves");
-															add("out");
-															add("over");
-															add("own");
-															add("same");
-															add("shan't");
-															add("she");
-															add("she'd");
-															add("she'll");
-															add("she's");
-															add("should");
-															add("shouldn't");
-															add("so");
-															add("some");
-															add("such");
-															add("than");
-															add("that");
-															add("that's");
-															add("the");
-															add("their");
-															add("theirs");
-															add("them");
-															add("themselves");
-															add("then");
-															add("there");
-															add("there's");
-															add("these");
-															add("they");
-															add("they'd");
-															add("they'll");
-															add("they're");
-															add("they've");
-															add("this");
-															add("those");
-															add("through");
-															add("to");
-															add("too");
-															add("under");
-															add("until");
-															add("up");
-															add("very");
-															add("was");
-															add("wasn't");
-															add("we");
-															add("we'd");
-															add("we'll");
-															add("we're");
-															add("we've");
-															add("were");
-															add("weren't");
-															add("what");
-															add("what's");
-															add("when");
-															add("when's");
-															add("where");
-															add("where's");
-															add("which");
-															add("while");
-															add("who");
-															add("who's");
-															add("whom");
-															add("why");
-															add("why's");
-															add("with");
-															add("won't");
-															add("would");
-															add("wouldn't");
-															add("you");
-															add("you'd");
-															add("you'll");
-															add("you're");
-															add("you've");
-															add("your");
-															add("yours");
-															add("yourself");
-															add("yourselves");
+															put(1, excelSheetMapperListCase1);
+															put(2, excelSheetMapperListCase2);
+															put(3, excelSheetMapperListCase3);
+															put(4, excelSheetMapperListCase4);
+															put(5, excelSheetMapperListCase5);
+															put(6, excelSheetMapperListCaseCustom);
+															put(7, excelSheetMapperListCase7);
+															put(8, excelSheetMapperListCase8);
+															put(9, excelSheetMapperListCase11);
+															put(10, excelSheetMapperListCase12);
 
 														}};
+
+														//dictionary of words
+														Map<String, String> wordDictionary = new HashMap<String, String>();
+
+														//List of unique words
+														List<String> uniqueWordsList = new ArrayList<String>();
+
+
+														//list of Neglected words
+														ArrayList<String> neglectedWordList = new ArrayList<String>(){
+															/**
+															 * 
+															 */
+															private static final long serialVersionUID = 4056783685635726115L;
+
+															{
+																add(".");
+																add("/");
+																add("(");
+																add("a");
+																add("about");
+																add("above");
+																add("after");
+																add("again");
+																add("against");
+																add("all");
+																add("am");
+																add("an");
+																add("and");
+																add("any");
+																add("are");
+																add("aren't");
+																add("as");
+																add("at");
+																add("be");
+																add("because");
+																add("been");
+																add("before");
+																add("being");
+																add("below");
+																add("between");
+																add("both");
+																add("but");
+																add("by");
+																add("can't");
+																add("cannot");
+																add("could");
+																add("couldn't");
+																add("did");
+																add("didn't");
+																add("do");
+																add("does");
+																add("doesn't");
+																add("doing");
+																add("don't");
+																add("down");
+																add("during");
+																add("each");
+																add("few");
+																add("for");
+																add("from");
+																add("further");
+																add("had");
+																add("hadn't");
+																add("has");
+																add("hasn't");
+																add("have");
+																add("haven't");
+																add("having");
+																add("he");
+																add("he'd");
+																add("he'll");
+																add("he's");
+																add("her");
+																add("here");
+																add("here's");
+																add("hers");
+																add("herself");
+																add("him");
+																add("himself");
+																add("his");
+																add("how");
+																add("how's");
+																add("i");
+																add("i'd");
+																add("i'll");
+																add("i'm");
+																add("i've");
+																add("if");
+																add("in");
+																add("into");
+																add("is");
+																add("isn't");
+																add("it");
+																add("it's");
+																add("its");
+																add("itself");
+																add("let's");
+																add("me");
+																add("more");
+																add("most");
+																add("mustn't");
+																add("my");
+																add("myself");
+																add("no");
+																add("nor");
+																add("not");
+																add("of");
+																add("off");
+																add("on");
+																add("once");
+																add("only");
+																add("or");
+																add("other");
+																add("ought");
+																add("our");
+																add("ours");
+																add("ourselves");
+																add("out");
+																add("over");
+																add("own");
+																add("same");
+																add("shan't");
+																add("she");
+																add("she'd");
+																add("she'll");
+																add("she's");
+																add("should");
+																add("shouldn't");
+																add("so");
+																add("some");
+																add("such");
+																add("than");
+																add("that");
+																add("that's");
+																add("the");
+																add("their");
+																add("theirs");
+																add("them");
+																add("themselves");
+																add("then");
+																add("there");
+																add("there's");
+																add("these");
+																add("they");
+																add("they'd");
+																add("they'll");
+																add("they're");
+																add("they've");
+																add("this");
+																add("those");
+																add("through");
+																add("to");
+																add("too");
+																add("under");
+																add("until");
+																add("up");
+																add("very");
+																add("was");
+																add("wasn't");
+																add("we");
+																add("we'd");
+																add("we'll");
+																add("we're");
+																add("we've");
+																add("were");
+																add("weren't");
+																add("what");
+																add("what's");
+																add("when");
+																add("when's");
+																add("where");
+																add("where's");
+																add("which");
+																add("while");
+																add("who");
+																add("who's");
+																add("whom");
+																add("why");
+																add("why's");
+																add("with");
+																add("won't");
+																add("would");
+																add("wouldn't");
+																add("you");
+																add("you'd");
+																add("you'll");
+																add("you're");
+																add("you've");
+																add("your");
+																add("yours");
+																add("yourself");
+																add("yourselves");
+
+															}};
 }

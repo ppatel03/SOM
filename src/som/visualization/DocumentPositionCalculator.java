@@ -12,12 +12,17 @@ import org.json.JSONException;
 import som.beans.SOMDimensionRelation;
 import som.constants.IGenericConstants;
 import som.helper.DocumentVisualizationDetailsHelper;
+import som.helper.GenericHelper;
 import som.beans.VectorCoordinate;
 //static imports
 import static som.constants.IDWMFileConstants.dwmInfoMap;
 import static som.constants.IVisualizationConstants.lamba;
 import static som.constants.IVisualizationConstants.svgColorList;
 import static som.constants.IVisualizationConstants.bmuCoordinatesJSONArray;
+import static som.constants.IVisualizationConstants.INITIAL_DISPLACEMENT;
+import static som.constants.IVisualizationConstants.MAX_DISPLACEMENT_FACTOR;;
+
+
 
 
 public  class DocumentPositionCalculator {
@@ -79,12 +84,20 @@ public  class DocumentPositionCalculator {
 			vectorCoordinate.setX(bmuX);
 			vectorCoordinate.setY(bmuY);
 			
+			
+			
+			if(!GenericHelper.isDimensionCorrect(vectorCoordinate.getX(), vectorCoordinate.getY(), dimensionsList)){
+				System.out.println(vectorCoordinate +" is not correct ");
+				resolvePointCollision(dimensionsList,vectorCoordinate,INITIAL_DISPLACEMENT);
+			}
+			dimensionsList.add(vectorCoordinate);
+			
 			//selecting the random color for this document 
 			int colorIndex = (int)(Math.random()*svgColorList.size());
 			
 			Map<String,Object> visualDocumentsMap = new HashMap<String,Object>();
-			visualDocumentsMap.put("x_axis", bmuX);
-			visualDocumentsMap.put("y_axis", bmuY);
+			visualDocumentsMap.put("x_axis", vectorCoordinate.getX());
+			visualDocumentsMap.put("y_axis", vectorCoordinate.getY());
 			visualDocumentsMap.put("radius", 5);
 			visualDocumentsMap.put("color", svgColorList.get(colorIndex));
 			visualDocumentsMap.put("documentNumber", documentNumber);			
@@ -100,28 +113,57 @@ public  class DocumentPositionCalculator {
 			bmuCoordinatesJSONArray.put(visualDocumentsMap);
 			//for debudgging
 			System.out.print("Document Number :"+documentNumber);
-			System.out.print(" bmuX:"+bmuX);
-			System.out.println(" bmuY:"+bmuY);
+			System.out.print(" bmuX:"+ vectorCoordinate.getX());
+			System.out.println(" bmuY:"+vectorCoordinate.getY());
 		}
 		
-		System.out.println(bmuCoordinatesJSONArray);
+		//System.out.println(bmuCoordinatesJSONArray);
+		//recalculateNewPositionToAvoidCollision();
 		
 	}
 
 	
-	public static void recalculateNewPositionToAvoidCollision(){
-		for(int i = 0 ; i < bmuCoordinatesJSONArray.length(); i++){
-			try {
-				Object jsonObject = bmuCoordinatesJSONArray.getJSONObject(i);
-				Map<String,Object> visualDocumentsMap = (Map<String,Object>)jsonObject;
-				
-				
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	
+	/**
+	 * This method resolves the collision using the angular diagonal displacement method
+	 * 
+	 * 
+	 * @param dimensionList
+	 * @param vectorCoordinate
+	 * @param displacementFactor
+	 */
+	public static void resolvePointCollision(List<VectorCoordinate> dimensionList, 
+			VectorCoordinate vectorCoordinate,double displacementFactor){
+		System.out.println(" Resolve Collosion starts for "+vectorCoordinate+" with factor "+displacementFactor);
+		if(displacementFactor > MAX_DISPLACEMENT_FACTOR){
+			return;
+		}
+		else {
+			double newX = vectorCoordinate.getX() + displacementFactor;
+			double newY  = vectorCoordinate.getY() + displacementFactor;
+			
+			if(!GenericHelper.isDimensionCorrect(newX, newY, dimensionList)){
+				newX = vectorCoordinate.getX() - displacementFactor;
+				newY  = vectorCoordinate.getY() - displacementFactor;			
+				if(!GenericHelper.isDimensionCorrect(newX, newY, dimensionList)){
+					newX = vectorCoordinate.getX() + displacementFactor;
+					newY  = vectorCoordinate.getY() - displacementFactor;
+					if(!GenericHelper.isDimensionCorrect(newX, newY, dimensionList)){
+						newX = vectorCoordinate.getX() - displacementFactor;
+						newY  = vectorCoordinate.getY() + displacementFactor;
+						if(!GenericHelper.isDimensionCorrect(newX, newY, dimensionList)){
+							resolvePointCollision(dimensionList, vectorCoordinate, displacementFactor+INITIAL_DISPLACEMENT);
+						}
+					}
+				}
 			}
 			
+			vectorCoordinate.setX(newX);
+			vectorCoordinate.setY(newY);
+			
+			return;
 		}
+		
 	}
 	
 	public static void main(String[] args) {

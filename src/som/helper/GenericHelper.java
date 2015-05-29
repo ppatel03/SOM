@@ -9,8 +9,14 @@ import static som.constants.IGenericConstants.bestWordFileOptionForSituationDesc
 import static som.constants.IGenericConstants.bestWordFileOptionForSituationDescriptionAndMissionStatement;
 import static som.constants.IGenericConstants.stemmedBestWordFileOptionForSituationDescriptionAndMissionStatement;
 import static som.constants.IGenericConstants.stemmendBestWordFileOptionForSituationDescription;
+import static som.constants.IVisualizationConstants.MIN_DIMENSION;
+import static som.constants.IVisualizationConstants.MAX_DIMENSION;
+
+
 
 import java.util.List;
+
+import som.beans.VectorCoordinate;
 
 public class GenericHelper {
 	
@@ -46,6 +52,32 @@ public class GenericHelper {
 	public static boolean isStemmedBestWordsSelected(int secondOption){
 		return secondOption == stemmendBestWordFileOptionForSituationDescription ||
 				secondOption == stemmedBestWordFileOptionForSituationDescriptionAndMissionStatement;
+	}
+	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param dimensionList
+	 * @return whether the point does not overlapp with one another
+	 */
+	public static boolean isDimensionCorrect(double x, double y, List<VectorCoordinate> dimensionList){
+				
+		boolean isDimensionCorrect = true;
+		
+		if(x <= MIN_DIMENSION || y<= MIN_DIMENSION || x >= MAX_DIMENSION || y >= MAX_DIMENSION){
+			return false;
+		}
+		
+		for(VectorCoordinate eachVectorCoordinate : dimensionList){
+			if(eachVectorCoordinate.isOverlapping(x, y)){
+				System.out.println(eachVectorCoordinate+ " is overalpping with x = "+x+" and y ="+y);
+				isDimensionCorrect = false;
+				break;
+			}
+		}
+		
+		return isDimensionCorrect;
 	}
 
 }

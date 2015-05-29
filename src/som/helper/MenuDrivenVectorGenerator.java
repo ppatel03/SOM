@@ -8,7 +8,6 @@ package som.helper;
 
 import static som.constants.IGenericConstants.inputValuesMap;
 import static som.constants.IGenericConstants.maxNoOfOptions;
-import static som.constants.IGenericConstants.defaultOption;
 import static som.constants.IGenericConstants.customColumnOption;
 import static som.constants.IGenericConstants.visualOption;
 import static som.constants.IGenericConstants.excelSheetMapperListCaseCustom;

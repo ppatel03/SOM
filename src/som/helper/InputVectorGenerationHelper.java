@@ -24,10 +24,7 @@ import static som.constants.IGenericConstants.uniqueWordsList;
 import static som.constants.IGenericConstants.bestWordsList;
 import static som.constants.IGenericConstants.neglectedWordList;
 import static som.constants.IGenericConstants.trimmedCharactersRegex;
-import static som.constants.IGenericConstants.bestWordFileOptionForSituationDescription;
-import static som.constants.IGenericConstants.bestWordFileOptionForSituationDescriptionAndMissionStatement;
 import static som.constants.IGenericConstants.stemmendBestWordFileOptionForSituationDescription;
-import static som.constants.IGenericConstants.stemmedBestWordFileOptionForSituationDescriptionAndMissionStatement;
 
 import static som.constants.IGenericConstants.templateVectorFileCreationOption;
 import static som.constants.IGenericConstants.blParserFileOption;
