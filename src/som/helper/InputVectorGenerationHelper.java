@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
+
 //static import
 import static som.constants.IGenericConstants.inputValuesMap;
 import static som.constants.IGenericConstants.wordDictionary;
@@ -25,12 +27,10 @@ import static som.constants.IGenericConstants.bestWordsList;
 import static som.constants.IGenericConstants.neglectedWordList;
 import static som.constants.IGenericConstants.trimmedCharactersRegex;
 import static som.constants.IGenericConstants.stemmendBestWordFileOptionForSituationDescription;
-
 import static som.constants.IGenericConstants.templateVectorFileCreationOption;
 import static som.constants.IGenericConstants.blParserFileOption;
 import static som.constants.IBestWordsFileConstants.CSV_WITH_SITUATION_DESC;
 import static som.constants.IBestWordsFileConstants.CSV_WITH_SITUATION_DESC_MISSION_TEXT;
-
 import static som.constants.IFileFactoryConstants.TEMPLATE_VECTOR_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_FILE;
 import static som.constants.IFileFactoryConstants.BEST_WORDS_TEMPLATE_VECTOR_FILE;
@@ -41,6 +41,7 @@ import static som.constants.IFileFactoryConstants.CUSTOM_SOM_PARSER_UNIT_OUTPUT_
 
 import som.adapter.FileOperationsAdapter;
 import som.beans.VectorData;
+import som.constants.ICommandLineConstants;
 
 public class InputVectorGenerationHelper {
 
@@ -469,6 +470,14 @@ public class InputVectorGenerationHelper {
 			//browser through every VectorData object and 
 			generateTfCooccurenceValuesIntoVectorsForBestWords(inputVectorMap,vectorDataList, firstOption);
 			fileOperAdapter.writeToFile(BEST_WORDS_TEMPLATE_VECTOR_FILE);
+			
+			//executing the command to create DWM Files
+			try{
+				String command = ICommandLineConstants.RUN_GROWING_SOM_COMMNAD;
+				Runtime.getRuntime().exec(command);				
+			}catch(Exception e){
+				System.out.println(e);
+			}
 		}
 		else{
 			//adding unique words to dictionary

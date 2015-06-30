@@ -28,13 +28,14 @@ public class DocumentVisualizationDetailsHelper {
 		VectorData vectorData =  vectorDataList.get(rowNumber);
 		
 		visualDocSheetMap.put("organization_name", vectorData.getOrganizatioName());
-		visualDocSheetMap.put("organization_website", vectorData.getOrganizationWebsite());
+		visualDocSheetMap.put("mission statement", vectorData.getMissionStatement());
+		visualDocSheetMap.put("State/Province", vectorData.getState());
+		visualDocSheetMap.put("Country", vectorData.getCountry());
 		visualDocSheetMap.put("social_sector", vectorData.getSocialSector()!= null && 
-				"x".equalsIgnoreCase(vectorData.getSituationDescription()) ? "Yes" : "No");
+				"x".equalsIgnoreCase(vectorData.getSituationDescription()) ? "1" : "0");
 		visualDocSheetMap.put("tech_sector", vectorData.getSocialSector()!= null && 
-				"x".equalsIgnoreCase(vectorData.getSituationDescription()) ? "Yes" : "No");
+				"x".equalsIgnoreCase(vectorData.getSituationDescription()) ? "1" : "0");
 		visualDocSheetMap.put("situation_description", vectorData.getSituationDescription());
-		visualDocSheetMap.put("technical_scope", vectorData.getTechnicalScope());
 		
 		return visualDocSheetMap;
 	}

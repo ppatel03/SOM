@@ -7,6 +7,7 @@
 
 package som.components;
 
+import som.constants.ICommandLineConstants;
 import som.notifier.SOMNotifier;
 import som.observer.SOMObserver;
 
@@ -21,7 +22,7 @@ public class SOMGUIViewer extends SOMObserver{
 	public void update() {
 		try{
 
-			String command = "cmd /c start  runSOM.bat";
+			String command = ICommandLineConstants.RUN_VISUAL_SOM_COMMAND;
 			Runtime.getRuntime().exec(command);
 			
 		}

@@ -43,8 +43,13 @@ public interface IGenericConstants {
 	//Default Option provided
 	int customColumnOption = 6;
 
-	//Default Option provided
+	//Visual Option provided
 	int visualOption = 4;
+	
+	//Input vector generation option
+	int INPUT_VECTOR_GENERATION_OPTION = 2;
+	
+
 
 	//Best Vector File Creation Option provided For Situation Description
 	int bestWordFileOptionForSituationDescription = 7;

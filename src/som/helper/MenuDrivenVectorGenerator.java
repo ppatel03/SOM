@@ -150,4 +150,26 @@ public class MenuDrivenVectorGenerator {
 
 		return inputForFirstMenu;
 	}
+	
+	
+	/**
+	 * helper exposed for Struts2 files to enable input vector files generation via Web interface
+	 * 
+	 * @param inputValuesMap
+	 * @param inputForFirstMenu
+	 * @param inputForSecondMenu
+	 * @return
+	 */
+	public static String createInputVectorFilesForStruts2(Map<Integer, VectorData> inputValuesMap,int inputForFirstMenu,
+			int inputForSecondMenu){
+		if(inputForFirstMenu != visualOption){
+			
+			handleCustomCoulumnInput(inputForSecondMenu);
+
+			createInputVectorsBasedOnOption(inputForFirstMenu,inputForSecondMenu);
+
+		}
+
+		return "SUCCESS";
+	}
 }
